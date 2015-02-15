@@ -1,6 +1,6 @@
 # Reproducible Research: Peer Assessment 1
-Author: "Matthew Renze"  
-Date: "02/14/2015"
+Author: Matthew Renze  
+Date: 02/14/2015
 
 ## Loading and preprocessing the data
 
@@ -36,8 +36,8 @@ hist(
 meanSteps <- mean(totals$steps)
 medianSteps <- median(totals$steps)
 ```
-The mean number of steps is 10,766.19.  
-The median number of steps is 10,765.
+The mean number of steps per day is 10,766.19.  
+The median number of steps per day is 10,765.
 
 
 ## What is the average daily activity pattern?
@@ -49,7 +49,7 @@ averages <- data %>%
   group_by(interval) %>% 
   summarise(steps = mean(steps))
 
-# Plot timeseries of average steps by interval of day
+# Plot time series of average steps by interval of day
 plot(
   x = averages$interval,
   y = averages$steps,
@@ -69,7 +69,7 @@ max <- averages %>%
 The 5-minute interval with the maximum number of steps across all days is interval 835 with 206.17 steps.
 
 ## Imputing missing values
-For our strategy to impute missing values, we will use the average value for the corresponding 5-minute interval across all days.
+For our strategy to impute missing values, we will use the average value across all days for the corresponding missing 5-minute interval.
 
 ```r
 # Count NA values
@@ -114,10 +114,10 @@ hist(
 imputedMeanSteps <- mean(imputedTotals$steps)
 imputedMedianSteps <- median(imputedTotals$steps)
 ```
-The mean number of steps (imputed) is 10,766.19.  
-The median number of steps (imputed) is 10,766.19.  
+The mean number of steps per day (imputed) is 10,766.19.  
+The median number of steps per day (imputed) is 10,766.19.  
 
-So, when using imputed values, the mean stayed the same and the median was moved to a day with all imputed values.  
+So, when using imputed values, the mean stayed the same and the median was moved to a day containing all imputed values.  
 
 ## Are there differences in activity patterns between weekdays and weekends?
 

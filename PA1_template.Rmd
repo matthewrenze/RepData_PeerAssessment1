@@ -6,8 +6,8 @@ output:
   html_document:
     keep_md: true
 ---
-Author: "Matthew Renze"  
-Date: "02/14/2015"
+Author: Matthew Renze  
+Date: 02/14/2015
 
 ## Loading and preprocessing the data
 
@@ -37,8 +37,8 @@ hist(
 meanSteps <- mean(totals$steps)
 medianSteps <- median(totals$steps)
 ```
-The mean number of steps is `r format(meanSteps, big.mark=",", nsmall = 2)`.  
-The median number of steps is `r format(medianSteps, big.mark=",")`.
+The mean number of steps per day is `r format(meanSteps, big.mark=",", nsmall = 2)`.  
+The median number of steps per day is `r format(medianSteps, big.mark=",")`.
 
 
 ## What is the average daily activity pattern?
@@ -49,7 +49,7 @@ averages <- data %>%
   group_by(interval) %>% 
   summarise(steps = mean(steps))
 
-# Plot timeseries of average steps by interval of day
+# Plot time series of average steps by interval of day
 plot(
   x = averages$interval,
   y = averages$steps,
@@ -105,10 +105,10 @@ hist(
 imputedMeanSteps <- mean(imputedTotals$steps)
 imputedMedianSteps <- median(imputedTotals$steps)
 ```
-The mean number of steps (imputed) is `r format(imputedMeanSteps, big.mark=",", nsmall = 2)`.  
-The median number of steps (imputed) is `r format(imputedMedianSteps, big.mark=",")`.  
+The mean number of steps per day (imputed) is `r format(imputedMeanSteps, big.mark=",", nsmall = 2)`.  
+The median number of steps per day (imputed) is `r format(imputedMedianSteps, big.mark=",")`.  
 
-So, when using imputed values, the mean stayed the same and the median was moved to a day with all imputed values.  
+So, when using imputed values, the mean stayed the same and the median was moved to a day containing all imputed values.  
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
